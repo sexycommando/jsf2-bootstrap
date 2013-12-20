@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <h:outputStylesheet name="bootstrap/css/bootstrap.min.css" />
+        <h:outputScript name="jquery/jquery-1.10.2.min.js" />
+        <h:outputScript name="bootstrap/js/bootstrap.min.js" />
+        <title>Application</title>
+    </h:head>
+    <h:body>
+        <div id="navbar" class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#{request.contextPath}/">Application</a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div id="menu" class="col-md-3">
+                <ui:insert name="menu">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li class="active">
+                            <a href="#{request.contextPath}/">Example 1</a>
+                        </li>
+                        <li>
+                            <a href="#{request.contextPath}/">Example 2</a>
+                        </li>
+                        <li>
+                            <a href="#{request.contextPath}/">Example 3</a>
+                        </li>
+                    </ul>
+                </ui:insert>
+            </div>
+            <div id="main" class="col-md-9">
+                <ui:insert name="main"></ui:insert>
+            </div>
+        </div>
+    </h:body>
+</html>
