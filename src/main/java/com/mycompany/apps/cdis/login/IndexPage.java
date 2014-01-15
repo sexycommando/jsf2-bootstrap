@@ -84,8 +84,8 @@ public class IndexPage {
 			return "home.xhtml?faces-redirect=true";
 		} catch (ServletException ex) {
 			context.addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_ERROR,
-							"ログインに失敗しました。", "ユーザ名、パスワードを正しく入力してください。"));
+				new FacesMessage(FacesMessage.SEVERITY_ERROR,
+					"ログインに失敗しました。", "ユーザ名、パスワードを正しく入力してください。"));
 			Logger.getLogger(IndexPage.class.getName()).log(Level.SEVERE, null, ex);
 			return "";
 		}

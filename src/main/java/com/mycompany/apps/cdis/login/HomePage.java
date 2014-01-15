@@ -1,13 +1,14 @@
 package com.mycompany.apps.cdis.login;
 
+import com.mycompany.apps.ejbs.RoleCheckLogic;
 import javax.ejb.EJB;
-import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
-import com.mycompany.apps.ejbs.RoleCheckLogic;
+import javax.inject.Named;
 
 /**
  * ホームページの ManagedBean クラス
+ *
  * @author stnetadmin
  */
 @Named(value = "homePage")
@@ -27,6 +28,7 @@ public class HomePage {
 
 	/**
 	 * ログインユーザのロールをチェックします。
+	 *
 	 * @return ロールを表す文字列
 	 */
 	public String getRoleChekerString() {
@@ -43,6 +45,7 @@ public class HomePage {
 
 	/**
 	 * ログインしたユーザが、引数で指定した役割（ロール）を持つユーザか否かを検証します。
+	 *
 	 * @param role ロール
 	 * @return 指定されたロールを持っているとき true, そうでないとき false
 	 */
