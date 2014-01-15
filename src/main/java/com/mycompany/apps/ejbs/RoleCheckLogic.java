@@ -4,7 +4,7 @@ import javax.annotation.security.RolesAllowed;
 import javax.ejb.Stateless;
 
 /**
- *
+ * ロールチェック用クラス
  * @author stnetadmin
  */
 @Stateless
