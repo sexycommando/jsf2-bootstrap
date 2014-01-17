@@ -58,7 +58,7 @@ public class IndexPage {
         if (principal != null) {
             try {
                 StringBuilder redirectURL = new StringBuilder(request.getContextPath());
-                redirectURL.append("/faces/login/home.xhtml");
+                redirectURL.append("/faces/view/login/home.xhtml");
                 FacesContext.getCurrentInstance().getExternalContext().redirect(redirectURL.toString());
             } catch (IOException ex) {
                 request.logout();
@@ -84,8 +84,8 @@ public class IndexPage {
             return "home.xhtml?faces-redirect=true";
         } catch (ServletException ex) {
             context.addMessage(null,
-                new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                    "ログインに失敗しました。", "ユーザ名、パスワードを正しく入力してください。"));
+                    new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                            "ログインに失敗しました。", "ユーザ名、パスワードを正しく入力してください。"));
             Logger.getLogger(IndexPage.class.getName()).log(Level.SEVERE, null, ex);
             return "";
         }

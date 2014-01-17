@@ -50,9 +50,13 @@
               <script src="assets/js/respond.min.js"></script>
             <![endif]-->
         </f:verbatim>
-
+        <f:event type="preRenderView" listener="#{indexPage.onPageLoad()}"/>
     </h:head>
-
+    <script>
+        window.onunload = function() {
+        };
+        history.forward();
+    </script>
     <h:body class="login-layout">
         <div class="main-container">
             <div class="main-content">
@@ -105,18 +109,18 @@
                                                             <span class="lbl"> Remember Me</span>
                                                         </label>
 
-<!--
-                                                        <button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
-                                                            <i class="icon-key"></i>
-                                                            Login
-                                                        </button>
--->
-                                                        
+                                                        <!--
+                                                                                                                <button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
+                                                                                                                    <i class="icon-key"></i>
+                                                                                                                    Login
+                                                                                                                </button>
+                                                        -->
 
-                                                        <h:commandLink action="#{indexPage.login()}" class="width-35 pull-right btn btn-sm btn-primary"> 
+
+                                                        <h:commandLink action="#{indexPage.login()}" class="width-35 pull-right btn btn-sm btn-primary">
                                                             <span class="icon-key"></span>Login
                                                         </h:commandLink>
-                                                       
+
                                                     </div>
 
                                                     <div class="space-4"></div>

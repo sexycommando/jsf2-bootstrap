@@ -23,14 +23,14 @@
     </welcome-file-list>
     <error-page>
         <error-code>403</error-code>
-        <location>/faces/errors/error-403.xhtml</location>
+        <location>/faces/view/errors/error-403.xhtml</location>
     </error-page>
     <security-constraint>
         <display-name>Authorized Resource</display-name>
         <web-resource-collection>
             <web-resource-name>protected-page</web-resource-name>
             <description>ログイン認証後に表示されるリソース</description>
-            <url-pattern>/faces/login/*</url-pattern>
+            <url-pattern>/faces/view/login/*</url-pattern>
             <http-method>GET</http-method>
             <http-method>POST</http-method>
         </web-resource-collection>
@@ -48,8 +48,8 @@
         <auth-method>FORM</auth-method>
         <realm-name>jdbc-realm</realm-name>
         <form-login-config>
-            <form-login-page>/faces/login/index.xhtml</form-login-page>
-            <form-error-page>/faces/login/error.xhtml</form-error-page>
+            <form-login-page>/faces/view/login/index.xhtml</form-login-page>
+            <form-error-page>/faces/view/login/error.xhtml</form-error-page>
         </form-login-config>
     </login-config>
     <security-role>
@@ -61,9 +61,35 @@
         <role-name>user</role-name>
     </security-role>
 
+    <filter>
+        <filter-name>XHTMLSecurity Filter</filter-name>
+        <filter-class>com.mycompany.apps.filter.XHTMLSecurityFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>XHTMLSecurity Filter</filter-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </filter-mapping>
+
+    <!-- web fonts -->
+    <mime-mapping>
+        <extension>eot</extension>
+        <mime-type>application/vnd.ms-fontobject</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>oft</extension>
+        <mime-type>application/opentype</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>ttf</extension>
+        <mime-type>application/x-font-ttf</mime-type>
+    </mime-mapping>
     <mime-mapping>
         <extension>woff</extension>
         <mime-type>application/x-font-woff</mime-type>
-        <!--<mime-type>font/x-woff</mime-type>-->
     </mime-mapping>
+    <mime-mapping>
+        <extension>svg</extension>
+        <mime-type>image/svg+xml</mime-type>
+    </mime-mapping>
+
 </web-app>
