@@ -16,7 +16,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * xhtml に直接アクセスさせないためのフィルタ 
+ * xhtml に直接アクセスさせないためのフィルタ
+ *
  * @author stnetadmin
  */
 public class XHTMLSecurityFilter implements Filter {
@@ -27,7 +28,7 @@ public class XHTMLSecurityFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
-            throws IOException, ServletException {
+        throws IOException, ServletException {
         String path = ((HttpServletRequest) request).getServletPath();
         if (path.startsWith("/faces")) {
             chain.doFilter(request, response);
