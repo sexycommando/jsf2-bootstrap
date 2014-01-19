@@ -16,32 +16,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
- * @author bigadmin
+ * xhtml に直接アクセスさせないためのフィルタ 
+ * @author stnetadmin
  */
 public class XHTMLSecurityFilter implements Filter {
 
-    /**
-     *
-     * @param filterConfig
-     * @throws ServletException
-     */
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
     }
 
-    /**
-     *
-     * @param request
-     * @param response
-     * @param chain
-     * @throws IOException
-     * @throws ServletException
-     */
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
-        throws IOException, ServletException {
-
+            throws IOException, ServletException {
         String path = ((HttpServletRequest) request).getServletPath();
         if (path.startsWith("/faces")) {
             chain.doFilter(request, response);
@@ -50,10 +36,8 @@ public class XHTMLSecurityFilter implements Filter {
         }
     }
 
-    /**
-     *
-     */
     @Override
     public void destroy() {
     }
+
 }

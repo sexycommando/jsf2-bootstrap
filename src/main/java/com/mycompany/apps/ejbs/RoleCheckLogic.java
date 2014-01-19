@@ -5,6 +5,7 @@ import javax.ejb.Stateless;
 
 /**
  * ロールチェック用クラス
+ *
  * @author stnetadmin
  */
 @Stateless
