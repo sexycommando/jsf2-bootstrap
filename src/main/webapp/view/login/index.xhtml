@@ -17,28 +17,30 @@
         <h:outputStylesheet name="assets/css/bootstrap.min.css" />
         <h:outputStylesheet name="assets/css/font-awesome.min.css" />
 
-        <h:outputText value="&lt;!--[if IE 7]&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;#{request.contextPath}/faces/javax.faces.resource/assets/css/font-awesome-ie7.min.css&quot; /&gt;&lt;![endif]--&gt;" escape="false" />
+        <h:outputText value="&lt;!--[if IE 7]&gt;" escape="false" />
+        <h:outputStylesheet name="assets/css/font-awesome-ie7.min.css" />
+        <h:outputText value="&lt;![endif]--&gt;" escape="false" />
 
         <!-- page specific plugin styles -->
 
         <!-- fonts -->
-
         <h:outputStylesheet name="assets/css/ace-fonts.css" />
 
         <!-- ace styles -->
-
         <h:outputStylesheet name="assets/css/ace.min.css" />
         <h:outputStylesheet name="assets/css/ace-rtl.min.css" />
 
-        <h:outputText value="&lt;!--[if lte IE 8]&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;#{request.contextPath}/faces/javax.faces.resource/assets/css/ace-ie.min.css&quot; /&gt;&lt;![endif]--&gt;" escape="false" />
+        <h:outputText value="&lt;!--[if lte IE 8]&gt;" escape="false" />
+        <h:outputStylesheet name="assets/css/ace-ie.min.css" />
+        <h:outputText value="&lt;![endif]--&gt;" escape="false" />
 
         <!-- inline styles related to this page -->
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <h:outputText value="&lt;!--[if lt IE 9]&gt;
-                      &lt;script src=&quot;#{request.contextPath}/faces/javax.faces.resource/assets/js/html5shiv.js&quot;&gt;&lt;/script&gt;
-                      &lt;script src=&quot;#{request.contextPath}/faces/javax.faces.resource/assets/js/assets/js/respond.min.js&quot;&gt;&lt;/script&gt;
-                      &lt;![endif]--&gt;" escape="false" />
+        <h:outputText value="&lt;!--[if lt IE 9]&gt;" escape="false" />
+        <h:outputScript library="assets/js" name="html5shiv.js" />
+        <h:outputScript library="assets/js" name="respond.min.js" />
+        <h:outputText value="&lt;![endif]--&gt;" escape="false" />
 
         <f:event type="preRenderView" listener="#{indexPage.onPageLoad()}"/>
     </h:head>
@@ -260,9 +262,13 @@
         </div><!-- /.main-container -->
 
         <!-- basic scripts -->
-        <h:outputText value="&lt;!--[if !IE]&gt;&lt;script type=&quot;text/javascript&quot;&gt; windows.jQuery || document.write(&quot;&lt;script src=&apos;assets/js/jquery-2.0.3.min.js&apos;&gt;&quot; + &quot;&lt;&quot; + &quot;/script&gt;&quot;);&lt;![endif]--&gt;" escape="false" />
 
-        <h:outputText value="&lt;script type=&quot;text/javascript&quot;&gt; if (&quot;ontouchend&quot; in document) document.write(&quot;&lt;script src=&apos;assets/js/jquery.mobile.custom.min.js&apos;&gt;&quot; + &quot;&lt;/script&gt;&quot;);" escape="false" />
+        <h:outputScript library="assets/js" name="jquery-2.0.3.min.js" />
+        <h:outputScript library="assets/js" name="jquery.mobile.custom.min.js" />
+
+
+
+
 
         <!-- inline scripts related to this page -->
         <script type="text/javascript">

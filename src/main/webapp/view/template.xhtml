@@ -298,18 +298,7 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <!-- PAGE CONTENT BEGINS -->
-                                <h:form>
-                                    ログインユーザ名：<h:outputLabel value="#{request.userPrincipal.name}"/>
-                                    でログインしました。<br/>
-                                    <h:outputLabel value="EJB 呼び出し結果：" />
-                                    <h:outputLabel value="#{homePage.roleChekerString}" /><br/>
-
-                                    <h:outputLabel value="管理者の表示文字列" rendered="#{homePage.isUserInRole('admin')}"/>
-                                    <h:outputLabel value="ユーザの表示文字列" rendered="#{homePage.isUserInRole('user')}"/>
-                                    <br/>
-
-                                    <h:commandButton value="ログアウト" action="#{indexPage.logout()}"/>
-                                </h:form>
+                                <ui:insert name="main"></ui:insert>
                                 <!-- PAGE CONTENT ENDS -->
                             </div><!-- /.col -->
                         </div><!-- /.row -->
