@@ -1,8 +1,9 @@
 package com.mycompany.apps.cdis.login;
 
 import com.mycompany.apps.ejbs.RoleCheckLogic;
+import java.io.Serializable;
 import javax.ejb.EJB;
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
@@ -12,8 +13,8 @@ import javax.inject.Named;
  * @author stnetadmin
  */
 @Named(value = "homePage")
-@RequestScoped
-public class HomePage {
+@SessionScoped
+public class HomePage implements Serializable {
 
     /**
      * Creates a new instance of HomePage

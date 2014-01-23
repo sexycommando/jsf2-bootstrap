@@ -37,7 +37,7 @@
 
     </h:head>
 
-    <h:body>
+    <body>
         <div class="navbar navbar-default" id="navbar">
             <script type="text/javascript">
                 try {
@@ -168,7 +168,7 @@
                                 <img class="nav-user-photo" src="assets/avatars/user.jpg" alt="Jason's Photo" />
                                 <span class="user-info">
                                     <small>Welcome,</small>
-                                    <h:outputLabel value="#{request.userPrincipal.name}"/>
+                                    Jason
                                 </span>
 
                                 <i class="icon-caret-down"></i>
@@ -185,8 +185,7 @@
                                 <li class="divider"></li>
 
                                 <li>
-                                    <a href="#" onclick="test('logout');
-                                            return = false">
+                                    <a href="#">
                                         <i class="icon-off"></i>
                                         Logout
                                     </a>
@@ -300,7 +299,18 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <!-- PAGE CONTENT BEGINS -->
-                                <ui:insert name="main-content"></ui:insert>
+                                <h:form>
+                                    ログインユーザ名：<h:outputLabel value="#{request.userPrincipal.name}"/>
+                                    でログインしました。<br/>
+                                    <h:outputLabel value="EJB 呼び出し結果：" />
+                                    <h:outputLabel value="#{homePage.roleChekerString}" /><br/>
+
+                                    <h:outputLabel value="管理者の表示文字列" rendered="#{homePage.isUserInRole('admin')}"/>
+                                    <h:outputLabel value="ユーザの表示文字列" rendered="#{homePage.isUserInRole('user')}"/>
+                                    <br/>
+
+                                    <h:commandButton value="ログアウト" action="#{indexPage.logout()}"/>
+                                </h:form>
                                 <!-- PAGE CONTENT ENDS -->
                             </div><!-- /.col -->
                         </div><!-- /.row -->
@@ -376,11 +386,7 @@
         <h:outputScript name="assets/js/ace.min.js"/>
 
         <!-- inline scripts related to this page -->
-        <script type="text/javascript">
-            function test(command) {
-                alert(command);
-            }
-        </script>
-    </h:body>
+
+    </body>
 
 </html>

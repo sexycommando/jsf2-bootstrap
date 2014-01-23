@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 
 /**
  * DB に保存するパスワードを SHA-256 のメッセージ・ダイジェストとして保存します。<br>
- * プレイン・テキストとメッセージ・ダイジェストの変換ユーティリティ
+ * プレーン・テキストとメッセージ・ダイジェストの変換ユーティリティ
  *
  * @author stnetadmin
  */
@@ -23,11 +23,11 @@ public class SHA256Encoder {
      *
      * @return SHA-256 ハッシュ文字列
      */
-    public String encodePassword(String origPassword) {
+    public String encodePassword(String originalPassword) {
         String returnValue = "";
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
-            byte[] digest = md.digest(origPassword.getBytes());
+            byte[] digest = md.digest(originalPassword.getBytes());
             StringBuilder builder = new StringBuilder();
             for (int i = 0; i < digest.length; i++) {
                 String tmp = Integer.toHexString(digest[i] & 0xff);

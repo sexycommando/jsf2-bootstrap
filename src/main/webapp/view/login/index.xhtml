@@ -154,13 +154,14 @@
                                                 <fieldset>
                                                     <label class="block clearfix">
                                                         <span class="block input-icon input-icon-right">
-                                                            <h:inputText id="email" value="#{indexPage.email}" class="form-control" p:placeholder="Email" />
+                                                            <h:inputText id="email" value="#{indexPage.email}" class="form-control" p:type="email" p:placeholder="Email" />
                                                             <i class="icon-envelope"></i>
                                                         </span>
                                                     </label>
 
                                                     <div class="clearfix">
-                                                        <button type="button" class="width-35 pull-right btn btn-sm btn-danger">
+                                                        <h:commandButton id="mailBtn" action="#{indexPage.sendMe()}" style="display: none"/>
+                                                        <button type="submit" class="width-35 pull-right btn btn-sm btn-danger">
                                                             <i class="icon-lightbulb"></i>
                                                             Send Me!
                                                         </button>

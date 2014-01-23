@@ -76,19 +76,29 @@ public class IndexPage {
         ExternalContext externalContext = context.getExternalContext();
         HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
 
-        String name = getUsername();
-        String pass = getPassword();
-        Logger.getLogger(IndexPage.class.getName()).log(Level.INFO, name + ":" + pass);
+//        String name = getUsername();
+//        String pass = getPassword();
+//        Logger.getLogger(IndexPage.class.getName()).log(Level.INFO, name + ":" + pass);
         try {
             request.login(getUsername(), getPassword());
             return "home.xhtml?faces-redirect=true";
         } catch (ServletException ex) {
             context.addMessage(null,
-                    new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                            "ログインに失敗しました。", "ユーザ名、パスワードを正しく入力してください。"));
+                new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                    "ログインに失敗しました。", "ユーザ名、パスワードを正しく入力してください。"));
             Logger.getLogger(IndexPage.class.getName()).log(Level.SEVERE, null, ex);
             return "";
         }
+    }
+
+    /**
+     * メール送信ボタンが押下された際の処理
+     *
+     * @return ログインページへリダイレクト
+     */
+    public String sendMe() {
+        String email = getEmail();
+        return "index.xhtml&faces-redirect=true";
     }
 
     /**
